@@ -1,8 +1,9 @@
-name: first job
-on: workflow_dispatch
+name: Hello World Workflow
+on:
+ workflow_dispatch:  # Enables manual trigger
 jobs:
-  first-job:
-    runs-on: self-hosted
-    steps:  
-      -  name: print hello
-         run:  echo "hello world"
+ say-hello:
+   runs-on: self-hosted  # Use 'self-hosted' for custom runner or 'ubuntu-latest' for GitHub-hosted runner
+   steps:
+     - name: Print Hello World
+       run: echo "Hello, World!"
