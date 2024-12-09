@@ -88,6 +88,7 @@ resource "aws_instance" "server1" {
   user_data = base64encode(file("${path.module}/userdata.sh"))
   vpc_security_group_ids = [ aws_security_group.SG1.id ]
   subnet_id = aws_subnet.Sub1.id
+  iam_instance_profile = aws_iam_role.ec2_ssm_role.arn
   tags = {
     Name = "server1"
   }
@@ -103,6 +104,7 @@ resource "aws_instance" "server2" {
   user_data = base64encode(file("${path.module}/userdata1.sh"))
   vpc_security_group_ids = [ aws_security_group.SG1.id ]
   subnet_id = aws_subnet.Sub1.id
+  iam_instance_profile = aws_iam_role.ec2_ssm_role.arn
   tags = {
     Name = "server2"
   }
